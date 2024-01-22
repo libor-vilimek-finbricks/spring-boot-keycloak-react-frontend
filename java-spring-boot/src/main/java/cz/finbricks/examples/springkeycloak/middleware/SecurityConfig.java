@@ -45,7 +45,7 @@ class SecurityConfig {
     public SecurityFilterChain resourceServerFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(auth -> auth
                 .requestMatchers(new AntPathRequestMatcher("/**", HttpMethod.OPTIONS.name())).permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/finbricks*"))
+                .requestMatchers(new AntPathRequestMatcher("/secured**"))
                 .hasRole("user")
                 .requestMatchers(new AntPathRequestMatcher("/"))
                 .permitAll()

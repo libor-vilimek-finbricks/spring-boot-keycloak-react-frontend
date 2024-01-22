@@ -22,25 +22,29 @@ resource "keycloak_realm" "springreact" {
 }
 
 resource "keycloak_openid_client" "openid_client" {
-  realm_id            = keycloak_realm.springreact.id
-  client_id           = "springreact-openid"
+  realm_id  = keycloak_realm.springreact.id
+  client_id = "springreact-openid"
 
-  name                = "springreact-openid"
-  enabled             = true
+  name    = "springreact-openid"
+  enabled = true
 
   access_type         = "PUBLIC"
   valid_redirect_uris = [
     "*"
   ]
 
-  standard_flow_enabled = true
+  web_origins = [
+    "*"
+  ]
+
+  standard_flow_enabled        = true
   direct_access_grants_enabled = true
 }
 
 resource "keycloak_user" "user_with_initial_password" {
-  realm_id   = keycloak_realm.springreact.id
-  username   = "springreact"
-  enabled    = true
+  realm_id = keycloak_realm.springreact.id
+  username = "springreact"
+  enabled  = true
 
   first_name = "Spring"
   last_name  = "React"
