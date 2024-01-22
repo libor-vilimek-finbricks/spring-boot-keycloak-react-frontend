@@ -1,9 +1,14 @@
 # spring-boot-keycloak-react-frontend
-Tutorial/Example for integration between keycloak and spring boot and integrating with client app
+Tutorial/Example for integration between keycloak and spring boot and integrating with client app.
 
-This example is based on two projects. The changes are minimal, all credits go to Nishada and Baeldung,
-the purpose of this project is to present minimalistic frontend+java spring+keycloak integration with easy-to-set-up
+If you follow the installation guide, you will have Java Spring Boot backend, React Frontend and
+Keycloak running on your local machine integrated to each other
 
+* Frontend (React) will allow you to login with user through Keycloak and obtain JWT token
+* Java Spring Boot Backend will connect to Keycloak, validate JWT token sent from Frontend and return Keycloak userId
+* Keycloak provides the Authentication (this example provides Docker commands and Terraform scripts to setup Keycloak automatically)
+
+This example is based on two projects. The changes are minimal, most credits go to Nishada and Baeldung.
 
 ### Baeldung - A Quick Guide to Using Keycloak With Spring Boot
 https://github.com/eugenp/tutorials/tree/d4136a922d78411557ec6a30bfea17a37fb5b3b8/spring-boot-modules/spring-boot-keycloak
@@ -60,5 +65,6 @@ Or open project in Intellij Idea (tested with 2023.3.2) and click default "run"
 2) Run `npm install`
 3) Run `npm start`
 4) http://localhost:3000 should open with React app
-5) Click on "Login" button - you should be redirected to Keycloak to login and then back
-6) Click on "Request Java Spring ..." button - you should see User ID
+5) Click on "Login" button - you should be redirected to Keycloak
+6) Login with `springreact/springreact` username/password you will be redirected back to React Frontend
+7) Click on "Request Java Spring ..." button - you should see User ID
